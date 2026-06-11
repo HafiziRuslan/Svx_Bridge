@@ -1,8 +1,6 @@
 #!/bin/sh
-#
-# Script to run in background svxbridge.py 
-#
-# a tester manuellement et adapter les ports et les output input device 
-# si quelqu'un parle sur la ROOM ca ne marche pas donc a relancer a la main
-python /opt/svxbridge/svxbridge.py > /dev/null 2>&1 &
 
+# Script to run in background svxbridge.py
+# manually test and adapt the ports and output input devices
+# if someone speaks on the ROOM it doesn't work so you have to restart it manually
+python /opt/svxbridge/svxbridge.py > /dev/null 2>&1 &

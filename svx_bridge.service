@@ -1,0 +1,12 @@
+[Unit]
+Description=SVXLink_Bridge Service
+After=svxlink.service
+Requires=svxlink.service
+
+[Service]
+User=svxlink
+ExecStart=python3 /opt/Svx_Bridge/svxbridge.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
