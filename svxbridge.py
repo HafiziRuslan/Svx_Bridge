@@ -2,14 +2,11 @@
 #  SP2ONG 2019
 #  SVXBridge - link SVXLink  <> Analog_Bridge via USRP
 
-
 import audioop
 import socket
 import struct
-
 import pyaudio
 import serial
-
 try:
 	import _thread as thread
 except ImportError:
@@ -27,11 +24,11 @@ usrpPortRX = 34031
 # usrpPortTX = rxPort
 usrpPortTX = 32031
 
-# Output device index see utils/index-audio.py for the good ports 'Loopback: PCM (hw:1,0)'
+# Output device index see utils/index-audio.py for the good ports 'Loopback: PCM (hw:0,0)'
 outputDeviceIndex = 0
 
 # Input device index see utils/index-audio.py for the good ports 'plug_Loopback_1_2'
-inputDeviceIndex = 12
+inputDeviceIndex = 1
 
 # Port SVXLink squlech read/write
 try:
@@ -48,8 +45,6 @@ except Exception as e:
 	exit(1)
 
 #################################
-
-
 # Status of /tmp/PTT:
 #  "T" - TX
 #  "R" - TX
@@ -71,8 +66,6 @@ class ReadLine:
 
 
 # USRP send stream audio from DMR Analog_Bridge to  SVXLink via ALSA Loop hw:loopback,1,0
-
-
 def rxAudioStream():
 	global ipAddress
 
@@ -130,8 +123,6 @@ def rxAudioStream():
 
 
 # USRP send stream audio from SVXLink via ALSA Loop hw:loopback,1,2 to Analog_Bridge
-
-
 def txAudioStream():
 	FORMAT = pyaudio.paInt16
 	CHUNK = 960
