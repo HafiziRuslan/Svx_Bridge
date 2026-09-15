@@ -1,0 +1,48 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "serialNumber": "urn:uuid:4f93f9ca-3794-4db3-971b-d452f341727e",
+  "metadata": {
+    "timestamp": "2026-09-15T19:12:30.571516200Z",
+    "tools": [
+      {
+        "vendor": "Astral Software Inc.",
+        "name": "uv",
+        "version": "0.12.15"
+      }
+    ],
+    "component": {
+      "type": "library",
+      "bom-ref": "svx-bridge-1@0.0.1",
+      "name": "svx-bridge",
+      "version": "0.0.1",
+      "properties": [
+        {
+          "name": "uv:package:is_project_root",
+          "value": "true"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pyserial-2@3.5",
+      "name": "pyserial",
+      "version": "3.5",
+      "purl": "pkg:pypi/pyserial@3.5"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pyserial-2@3.5"
+    },
+    {
+      "ref": "svx-bridge-1@0.0.1",
+      "dependsOn": [
+        "pyserial-2@3.5"
+      ]
+    }
+  ]
+}

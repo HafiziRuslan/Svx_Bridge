@@ -20,4 +20,4 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pyserial", specifier = ">=3.5" }]
+requires-dist = [{ name = "pyserial" }]

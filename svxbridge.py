@@ -7,6 +7,7 @@ import socket
 import struct
 import pyaudio
 import serial
+
 try:
 	import _thread as thread
 except ImportError:
@@ -43,6 +44,7 @@ try:
 except Exception as e:
 	print("Error: Could not open /tmp/PTT. Ensure SvxLink is running. ({})".format(e))
 	exit(1)
+
 
 #################################
 # Status of /tmp/PTT:
@@ -155,7 +157,9 @@ def txAudioStream():
 				# print 'PTT: {}'.format(ptt)
 			lastPtt = ptt
 			if ptt:
-				usrp = b"USRP" + struct.pack(">iiiiiii", seq, 0, ptt, 0, 0, 0, 0) + audio
+				usrp = (
+					b"USRP" + struct.pack(">iiiiiii", seq, 0, ptt, 0, 0, 0, 0) + audio
+				)
 				udp.sendto(usrp, (ipAddress, usrpPortTX))
 				# print 'transmitting'
 				seq = seq + 1
