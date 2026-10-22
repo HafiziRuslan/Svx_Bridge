@@ -1,9 +1,23 @@
 [project]
-name = "svx-bridge"
-version = "0.0.1"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.10"
+name = 'svx-bridge'
+version = '0.0.1'
+description = 'Add your description here'
+readme = 'README.md'
+requires-python = '>=3.10'
 dependencies = [
-	"pyserial",
+	'pyaudio',
+	'pyserial',
+	'thread',
 ]
+
+[tool.ruff]
+line-length = 150
+analyze.detect-string-imports = true
+format.quote-style = 'single'
+format.indent-style = 'tab'
+format.docstring-code-format = true
+format.line-ending = 'lf'
+format.skip-magic-trailing-comma = true
+lint.isort.combine-as-imports = true
+lint.isort.default-section = 'first-party'
+lint.isort.force-single-line = true

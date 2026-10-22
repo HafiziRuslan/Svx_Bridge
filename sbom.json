@@ -2,14 +2,14 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "version": 1,
-  "serialNumber": "urn:uuid:4f93f9ca-3794-4db3-971b-d452f341727e",
+  "serialNumber": "urn:uuid:934b550d-2d14-43d5-8f38-d8227bfea5c0",
   "metadata": {
-    "timestamp": "2026-09-15T19:12:30.571516200Z",
+    "timestamp": "2026-10-22T13:02:59.394580700Z",
     "tools": [
       {
         "vendor": "Astral Software Inc.",
         "name": "uv",
-        "version": "0.12.15"
+        "version": "0.13.4"
       }
     ],
     "component": {
@@ -28,21 +28,56 @@
   "components": [
     {
       "type": "library",
-      "bom-ref": "pyserial-2@3.5",
+      "bom-ref": "pyaudio-2@0.2.14",
+      "name": "pyaudio",
+      "version": "0.2.14",
+      "purl": "pkg:pypi/pyaudio@0.2.14"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pyserial-3@3.5",
       "name": "pyserial",
       "version": "3.5",
       "purl": "pkg:pypi/pyserial@3.5"
+    },
+    {
+      "type": "library",
+      "bom-ref": "thread-4@2.0.6",
+      "name": "thread",
+      "version": "2.0.6",
+      "purl": "pkg:pypi/thread@2.0.6"
+    },
+    {
+      "type": "library",
+      "bom-ref": "typing-extensions-5@4.16.0",
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "purl": "pkg:pypi/typing-extensions@4.16.0"
     }
   ],
   "dependencies": [
     {
-      "ref": "pyserial-2@3.5"
+      "ref": "pyaudio-2@0.2.14"
+    },
+    {
+      "ref": "pyserial-3@3.5"
     },
     {
       "ref": "svx-bridge-1@0.0.1",
       "dependsOn": [
-        "pyserial-2@3.5"
+        "pyaudio-2@0.2.14",
+        "pyserial-3@3.5",
+        "thread-4@2.0.6"
       ]
+    },
+    {
+      "ref": "thread-4@2.0.6",
+      "dependsOn": [
+        "typing-extensions-5@4.16.0"
+      ]
+    },
+    {
+      "ref": "typing-extensions-5@4.16.0"
     }
   ]
 }
